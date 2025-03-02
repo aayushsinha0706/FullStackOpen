@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
+import Weather from './components/Weather'
+
 
 const App = () => {
   const [input, setInput] = useState('')
@@ -33,6 +35,8 @@ const App = () => {
     }
   }, [input])
 
+
+
   const showCountryDetails = (country) => {
     return (
       <div>
@@ -48,6 +52,7 @@ const App = () => {
           )}
         </ul>
         <img src={country.flags.png} alt={country.flags.alt} />
+        <Weather country={country} />
       </div>
     )
   }
