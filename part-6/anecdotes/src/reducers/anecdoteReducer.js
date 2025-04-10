@@ -24,6 +24,10 @@ const anecdotesAtStart = [
     console.log('action', action)
 
     switch (action.type) {
+
+      case 'NEW_ANECDOTE':
+        return [...state,action.payload]
+
       case 'VOTE': {
         const id = action.payload.id
         const anecdoteToChange = state.find(anecdote => anecdote.id === id)
@@ -43,6 +47,13 @@ export const voteAnecdote = (id) => {
   return {
     type: 'VOTE',
     payload: { id }
+  }
+}
+
+export const newAnecdote = (anecdote) => {
+  return {
+    type: 'NEW_ANECDOTE',
+    payload: asObject(anecdote)
   }
 }
   
