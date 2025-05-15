@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { voteAnecdote } from '../reducers/anecdoteReducer'
 
 const AnecdoteList = () => {
+    
     const anecdotes = useSelector(state => {
         if (state.filter === ''){
             return state.anecdotes.toSorted((a,b) => b.votes - a.votes )
@@ -14,6 +15,7 @@ const AnecdoteList = () => {
         }
 
     })
+
     const dispatch = useDispatch()
 
     const vote = (id) => {
