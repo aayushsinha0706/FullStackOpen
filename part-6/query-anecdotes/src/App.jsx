@@ -7,12 +7,6 @@ import { getAnecdotes } from './requests'
 
 const App = () => {
 
-
-
-  const handleVote = (anecdote) => {
-    console.log('vote')
-  }
-
   const {status, data} = useQuery({
     queryKey: ['anecdotes'],
     queryFn: getAnecdotes,
@@ -28,6 +22,10 @@ const App = () => {
   }
 
   const anecdotes = data
+
+  const handleVote = (anecdote) => {
+    console.log('vote')
+  }
 
   return (
     <div>
